@@ -38,8 +38,9 @@ export default {
   },
   methods: {
     makedata(data) {
+      console.log(data);
       data.forEach(item => {
-        if (item.singin) {
+        if (item.signined) {
           this.signin.push(item);
         } else {
           this.notsignin.push(item);

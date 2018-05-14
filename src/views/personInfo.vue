@@ -12,11 +12,11 @@
 		</div>
 		<h3 style="margin-top:20px;">查找结果</h3>
 		<el-form :model="reslult" :rules="rules" ref="ruleForm" label-width="100px" style="width:500px;margin-top:20px;">
+			<el-form-item label="手机号">
+				<el-input disabled v-model="reslult.tel"></el-input>
+			</el-form-item>
 			<el-form-item label="姓名" prop="name">
 				<el-input v-model="reslult.name"></el-input>
-			</el-form-item>
-			<el-form-item label="手机号" prop="tel">
-				<el-input v-model="reslult.tel"></el-input>
 			</el-form-item>
 			<el-form-item label="部门">
 				<el-input v-model="reslult.part"></el-input>
