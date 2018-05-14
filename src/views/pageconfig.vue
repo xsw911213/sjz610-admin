@@ -35,7 +35,7 @@
 					dataid:this.dataid,
 					modules:this.modules
 				}
-				console.log(data);
+				// console.log(data);
 				this.ajax.http('put',this.host.baseUrl+'/modules',data,this.getModules,this.error)
 			}
 		},
