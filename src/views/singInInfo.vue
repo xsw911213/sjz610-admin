@@ -8,7 +8,7 @@
 			<el-table :data="signin" height="250" border style="width: 600px">
 				<el-table-column prop="name" label="姓名" width="180">
 				</el-table-column>
-				<el-table-column prop="phone" label="电话" width="180">
+				<el-table-column prop="tel" label="电话" width="180">
 				</el-table-column>
 				<el-table-column prop="part" label="部门">
 				</el-table-column>
@@ -19,7 +19,7 @@
 			<el-table :data="notsignin" height="250" border style="width: 600px">
 				<el-table-column prop="name" label="姓名" width="180">
 				</el-table-column>
-				<el-table-column prop="phone" label="电话" width="180">
+				<el-table-column prop="tel" label="电话" width="180">
 				</el-table-column>
 				<el-table-column prop="part" label="部门">
 				</el-table-column>
@@ -38,14 +38,15 @@ export default {
   },
   methods: {
     makedata(data) {
+      console.log(data);
       data.forEach(item => {
-        if (item.singin) {
+        if (item.signined) {
           this.signin.push(item);
         } else {
           this.notsignin.push(item);
         }
       });
-      console.log(this.signin, this.notsignin);
+      // console.log(this.signin, this.notsignin);
       this.makeEcharts(this.signin, this.notsignin);
     },
     makeEcharts(signin, notsignin) {
@@ -66,7 +67,7 @@ export default {
         },
         series: [
           {
-            name: "签到情况",
+            name: "",
             type: "pie",
             radius: "55%",
             center: ["50%", "60%"],
@@ -89,41 +90,18 @@ export default {
     }
   },
   mounted() {
-		// console.log(this.Echart)
-    let getData = [
-      {
-        name: "张三",
-				phone: "1",
-				part:'政法部门',
-        singin: false
-      },
-      {
-        name: "李四",
-				phone: "2",
-				part:'组织部门',
-        singin: true
-      },
-      {
-        name: "王五",
-				phone: "3",
-				part:'审计部门',
-        singin: true
-      },
-      {
-        name: "赵柳",
-				phone: "4",
-				part:'公安部门',
-        singin: false
-      },
-      {
-        name: "张三",
-				phone: "5",
-				part:'交通部门',
-        singin: true
-      }
-    ];
+    let _this = this;
+    function getSucc(res){
+      _this.makedata(res.data);
+    }
+    function error(res){
+      console.log(res);
+    }
+    this.ajax.http('get',this.host.baseUrl+'/persondata',{},getSucc,error)
 
-    this.makedata(getData);
+		// console.log(this.Echart)
+
+    
   }
 };
 </script>
