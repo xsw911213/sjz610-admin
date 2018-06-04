@@ -62,7 +62,7 @@ let routes = [
         //iconCls: 'fa fa-address-card',
         leaf: true,//只有一个节点
         children: [
-            { path: '/questionNaire', component: questionNaire, name: '问卷调查' }
+            { path: '/questionNaire', component: questionNaire, name: '留言板' }
         ]
     },
     {
