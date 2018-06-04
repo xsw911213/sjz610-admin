@@ -55,16 +55,16 @@ let routes = [
             { path: '/liveRoom', component: liveRoom, name: '直播间' }
         ]
     },
-    {
-        path: '/',
-        component: Home,
-        name: '景区导览',
-        //iconCls: 'fa fa-id-card-o',
-        children: [
-            { path: '/articleList', component: personInfo, name: '文章列表' },
-            { path: '/addArticle', component: singInInfo, name: '添加文章' },
-        ]
-    },
+    // {
+    //     path: '/',
+    //     component: Home,
+    //     name: '景区导览',
+    //     //iconCls: 'fa fa-id-card-o',
+    //     children: [
+    //         { path: '/articleList', component: personInfo, name: '文章列表' },
+    //         { path: '/addArticle', component: singInInfo, name: '添加文章' },
+    //     ]
+    // },
     {
         path: '/',
         component: Home,
