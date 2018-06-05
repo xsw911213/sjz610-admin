@@ -10,8 +10,6 @@ const questionNaire = resolve => require(['../src/views/questionNaire'], resolve
 const pageConfig = resolve => require(['../src/views/pageconfig'], resolve);
 
 
-
-
 let routes = [
     {
         path: '/login',
